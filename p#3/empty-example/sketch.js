@@ -1,11 +1,13 @@
 
-var vertices=[];
+
+// Crear variables globales que alacenen las coordenadas de los obstaculos
+
+
+
 function setup() {
     // put setup code here  
     createCanvas(3500, 2200); 
     background(" #ebf5fb ");
-    nodos();//Llama a la funcion nodos
-    conectar();
   }
   
   function draw() {
@@ -55,71 +57,35 @@ function setup() {
      //Robot   
      fill('#000');
      rect(410, 2050, 100, 140);
-    
-    
-
-     
-
-
    }
 
-function conectar(){
-
-  var reached=[];
-  var unreached=[];
-  for (var i=0; i< vertices.length;i++)
-  {
-  unreached.push(vertices[i])
-  }
-  reached.push(unreached[0]);
-  unreached.splice(0, 1);
-  while(unreached.length>0)
-  {
-  var record=10000;
-    var rIndex;
-    var uIndex;
-    for(var i=0; i<reached.length;i++)
-    {
-      for (var j=0;j<unreached.length;j++)
-      {
-        var v1= reached[i];
-        var v2=unreached[j];
-        var d=dist(v1.x,v1.y,v2.x,v2.y);
-        if(d<record)
-          {
-            record=d;
-            rIndex=i;
-            uIndex=j;
-          }
-      }
-    }
-    stroke('blue');
-    strokeWeight(5);
-    line(reached[rIndex].x,reached[rIndex].y,unreached[uIndex].x,unreached[uIndex].y);
-    reached.push(unreached[uIndex]);
-    unreached.splice(uIndex, 1);
-  }
-  //Dibuja los puntos
-  for(var i=0;i<vertices.length;i++)
-  {   
-    stroke('red');
-    point(vertices[i].x,vertices[i].y,16,16);
-    strokeWeight(20);
-  }
 
 
 
+
+function MaterialDejar (){
+  // Ingresamos la ubicación de nuestro material a dejar
 
 }
 
-//Crea 100 vertices sin los puntos rojos
-  function nodos()
-  {
-    for(var i=0; i<100;i++)
-    {
-    var v= createVector(random(width),random(height));
-    vertices.push(v);
-    }
+function MaterialSalida () {
+  // Ingresamos la ubicación de nuestro material a sacar del almacén
 
-  }
+}
+
+
+function ValidaObtaculo( x1,x2,x3,x4){
+  // Validar si la coordenada ingresada no choque con ningun obsstaculo
   
+}
+
+
+function RRT () {
+  //Algoritmo que calcula la ruta
+  
+}
+
+function DibujaCamino () {
+  //Traza la ruta optima generada
+
+}
