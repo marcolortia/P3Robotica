@@ -101,8 +101,7 @@ function conectar(){
   }
   //Dibuja los puntos
   for(var i=0;i<vertices.length;i++)
-  {
-   
+  {   
     stroke('red');
     point(vertices[i].x,vertices[i].y,16,16);
     strokeWeight(20);
